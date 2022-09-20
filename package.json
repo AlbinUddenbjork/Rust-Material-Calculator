@@ -2,9 +2,11 @@
   "name": "rust-material-calculator",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "RustMaterialCalculator.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node TestApp.js"
   },
   "repository": {
     "type": "git",
