@@ -1,0 +1,20 @@
+{
+  "name": "rust-material-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "RustMaterialCalculator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlbinUddenbjork/Rust-Material-Calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlbinUddenbjork/Rust-Material-Calculator/issues"
+  },
+  "homepage": "https://github.com/AlbinUddenbjork/Rust-Material-Calculator#readme"
+}
