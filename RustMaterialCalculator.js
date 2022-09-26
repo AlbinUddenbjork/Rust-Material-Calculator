@@ -53,7 +53,31 @@ export class RustMaterialCalculator {
     return materials
   }
 
+  static TriangleFloorCalculator (buildingTier, Amount, materials) {
+    if (materials === undefined) {
+      const materials = [0, 0, 0, 0]
+    }
+
+    materials[0] += 13 * Amount
+
+    if (buildingTier == 1) {
+      materials[0] += 50 * Amount
+    } else if (buildingTier == 2) {
+      materials[1] += 75 * Amount
+    } else if (buildingTier == 3) {
+      materials[2] += 50 * Amount
+    } else if (buildingTier == 4) {
+      materials[3] += 7 * Amount
+    }
+
+    return materials
+  }
+
   static DoorwayCalculator (buildingTier, Amount, materials) {
+    if (materials === undefined) {
+      const materials = [0, 0, 0, 0]
+    }
+    
     materials[0] += 35 * Amount
     
     if (buildingTier == 1) {
