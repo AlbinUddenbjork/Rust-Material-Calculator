@@ -47,8 +47,8 @@ export class RustMaterialCalculator {
     if (materials === undefined) {
       const materials = [0, 0, 0, 0]
     }
-
-    materials = this.FoundationWallSupport (buildingTier, Amount, materials)
+    
+    materials = this.TriangleFoundationSquareFloorSupport (buildingTier, Amount, materials)
 
     return materials
   }
@@ -111,6 +111,24 @@ export class RustMaterialCalculator {
     return nodeAmount
   }
 
+  static MetalCalculator (pickaxeTier, amount, multiplier) {
+    if (multiplier !== undefined && multiplier > 1) {
+      amount = amount / multiplier
+    }
+    let nodeAmount
+    
+    if (pickaxeTier === 1) {
+      nodeAmount = (amount / 250)
+    } else if (pickaxeTier === 2) {
+      nodeAmount = (amount / 475)
+    } else if (pickaxeTier === 3) {
+      nodeAmount = (amount / 600)
+    }
+
+    nodeAmount = Math.ceil(nodeAmount)
+    return nodeAmount
+  }
+
   static SulfurCalculator (pickaxeTier, amount, multiplier) {
     if (multiplier !== undefined && multiplier > 1) {
       amount = amount / multiplier
@@ -129,17 +147,46 @@ export class RustMaterialCalculator {
     return nodeAmount
   }
 
-  static HQMCalculator (amount, multiplier) {
+  static HighQualityMetalCalculator (amount, multiplier) {
     if (multiplier !== undefined && multiplier > 1) {
       amount / multiplier
     }
 
-    const nodeAmount = amount / 2
+    let nodeAmount = amount / 2
 
     nodeAmount = Math.ceil(nodeAmount)
     return nodeAmount
   }
 
+  static TreeCalculator (hatchetTier, amount, multiplier) {
+    if (multiplier !== undefined && multiplier > 1) {
+      amount = amount / multiplier
+    }
+    let treeAmountLow
+    let treeAmountHigh
+    
+    // 1 = rock, 2 = stone hatchet, 3 = hatchet, 4 = salveged axe or chainsaw.
+    if (hatchetTier === 1) {
+      treeAmountLow = (amount / 250)
+      treeAmountHigh = (amount / 500)
+    } else if (hatchetTier === 2) {
+      treeAmountLow = (amount / 406)
+      treeAmountHigh = (amount / 810)
+    } else if (hatchetTier === 3) {
+      treeAmountLow = (amount / 434)
+      treeAmountHigh = (amount / 867)
+    } else if (hatchetTier === 4) {
+      treeAmountLow = (amount / 500)
+      treeAmountHigh = (amount / 1000)
+    }
+
+    treeAmountLow = Math.ceil(treeAmountLow)
+    treeAmountHigh = Math.ceil(treeAmountHigh)
+    const treeEstimate = {low:treeAmountLow, high:treeAmountHigh}
+    return treeEstimate
+  }
+
+  // This function is used to support FouundationCalculator and WallCalculator.
   static FoundationWallSupport (buildingTier, Amount, materials) {
     if (buildingTier == 1) {
       materials[0] += 200 * Amount
@@ -154,6 +201,7 @@ export class RustMaterialCalculator {
     return materials
   }
 
+  // This function is used to support TriangelFloorCalculation and SquareFloorCalculator.
   static TriangleFoundationSquareFloorSupport (buildingTier, Amount, materials) {
     
     materials[0] += 25 * Amount
