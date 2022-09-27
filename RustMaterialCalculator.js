@@ -93,6 +93,19 @@ export class RustMaterialCalculator {
     return materials
   }
 
+  static StoneCalculator (pickaxeTier, amount) {
+    let nodeAmount
+    if (pickaxeTier === 1) {
+      nodeAmount = amount / 375
+    } else if (pickaxeTier === 2) {
+      nodeAmount = amount / 795
+    } else if (pickaxeTier === 2) {
+      nodeAmount = amount / 1000
+    }
+
+    return nodeAmount
+  }
+
   static FoundationWallSupport (buildingTier, Amount, materials) {
     if (buildingTier == 1) {
       materials[0] += 200 * Amount
