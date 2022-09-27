@@ -78,17 +78,17 @@ export class RustMaterialCalculator {
       const materials = [0, 0, 0, 0]
     }
     
-    materials[0] += 35 * Amount
-    
-    if (buildingTier == 1) {
-      materials[0] += 140 * Amount
-    } else if (buildingTier == 2) {
-      materials[1] += 210 * Amount
-    } else if (buildingTier == 3) {
-      materials[2] += 140 * Amount
-    } else if (buildingTier == 4) {
-      materials[3] += 18 * Amount
+    this.WindowDoorwaySupport(buildingTier, amount, materials)
+
+    return materials
+  }
+
+  static WindowCalculator (buildingTier, amount, materials) {
+    if (materials === undefined) {
+      const materials = [0, 0, 0, 0]
     }
+    
+    this.WindowDoorwaySupport(buildingTier, amount, materials)
 
     return materials
   }
@@ -214,6 +214,24 @@ export class RustMaterialCalculator {
       materials[2] += 100 * Amount
     } else if (buildingTier == 4) {
       materials[3] += 13 * Amount
+    }
+
+    return materials
+  }
+
+  // This function is used to support WindowCalculator and DoorwayCalculator.
+  static WindowDoorwaySupport (buildingTier, Amount, materials) {
+    
+    materials[0] += 35 * Amount
+    
+    if (buildingTier == 1) {
+      materials[0] += 140 * Amount
+    } else if (buildingTier == 2) {
+      materials[1] += 210 * Amount
+    } else if (buildingTier == 3) {
+      materials[2] += 140 * Amount
+    } else if (buildingTier == 4) {
+      materials[3] += 18 * Amount
     }
 
     return materials

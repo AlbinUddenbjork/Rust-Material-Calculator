@@ -53,9 +53,9 @@ function calculateBuilding (buildingType, buildingAmount, buildingTier, material
   } else if (buildingType === 5) {
     RustMaterialCalculator.TriangleFloorCalculator(buildingTier, buildingAmount, materials)
   } else if (buildingType === 6) {
-    RustMaterialCalculator.SquareFloorCalculator(buildingTier, buildingAmount, materials)
-  } else if (buildingType === 7) {
     RustMaterialCalculator.DoorwayCalculator(buildingTier, buildingAmount, materials)
+  } else if (buildingType === 7) {
+    RustMaterialCalculator.WindowCalculator(buildingTier, buildingAmount, materials)
   }
 }
 
