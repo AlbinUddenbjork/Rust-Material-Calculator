@@ -99,7 +99,7 @@ export class RustMaterialCalculator {
       nodeAmount = amount / 375
     } else if (pickaxeTier === 2) {
       nodeAmount = amount / 795
-    } else if (pickaxeTier === 2) {
+    } else if (pickaxeTier === 3) {
       nodeAmount = amount / 1000
     }
 
