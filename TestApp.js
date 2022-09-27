@@ -4,7 +4,7 @@ import { stdin as input, stdout as output } from 'node:process';
 
 const scanner = readline.createInterface({ input, output });
 let done = true
-const materials = [0, 0, 0, 0]
+let materials = [0, 0, 0, 0]
 
 while (done) {
   let buildingType = await scanner.question('What would you like to calculate? 1. Wall 2. Square foundation 3. Square floor 4. Triangle foundation 5. Triangle floor 6. Doorway 7. Window ')
@@ -16,7 +16,7 @@ while (done) {
   let buildingAmount = await scanner.question('How many will you need? ')
   buildingAmount = parseInt(buildingAmount)
 
-  calculateBuilding(buildingType, buildingAmount, buildingTier, materials)
+  materials = calculateBuilding(buildingType, buildingAmount, buildingTier, materials)
   let answer 
   answer = await scanner.question('Are you done? y/n ')
   if (answer === 'y') {
@@ -44,20 +44,22 @@ scanner.close();
 
 function calculateBuilding (buildingType, buildingAmount, buildingTier, materials) {
   if (buildingType === 1) {
-    RustMaterialCalculator.WallCalculator(buildingTier, buildingAmount, materials)
+    materials = RustMaterialCalculator.WallCalculator(buildingTier, buildingAmount, materials)
   } else if (buildingType === 2) {
-    RustMaterialCalculator.SquareFoundationCalculator(buildingTier, buildingAmount, materials)
+    materials = RustMaterialCalculator.SquareFoundationCalculator(buildingTier, buildingAmount, materials)
   } else if (buildingType === 3) {
-    RustMaterialCalculator.SquareFloorCalculator(buildingTier, buildingAmount, materials)
+    materials = RustMaterialCalculator.SquareFloorCalculator(buildingTier, buildingAmount, materials)
   } else if (buildingType === 4) {
-    RustMaterialCalculator.TriangleFoundationCalculator(buildingTier, buildingAmount, materials)
+    materials = RustMaterialCalculator.TriangleFoundationCalculator(buildingTier, buildingAmount, materials)
   } else if (buildingType === 5) {
-    RustMaterialCalculator.TriangleFloorCalculator(buildingTier, buildingAmount, materials)
+    materials = RustMaterialCalculator.TriangleFloorCalculator(buildingTier, buildingAmount, materials)
   } else if (buildingType === 6) {
-    RustMaterialCalculator.DoorwayCalculator(buildingTier, buildingAmount, materials)
+    materials = RustMaterialCalculator.DoorwayCalculator(buildingTier, buildingAmount, materials)
   } else if (buildingType === 7) {
-    RustMaterialCalculator.WindowCalculator(buildingTier, buildingAmount, materials)
+    materials = RustMaterialCalculator.WindowCalculator(buildingTier, buildingAmount, materials)
   }
+
+  return materials
 }
 
 function stoneTest (materials) {

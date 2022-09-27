@@ -1,11 +1,11 @@
 export class RustMaterialCalculator {
   static WallCalculator (buildingTier, amount, materials) {
     if (materials === undefined) {
-      const materials = [0, 0, 0, 0]
+      materials = [0, 0, 0, 0]
     }
 
     materials[0] += 50 * amount
-    
+
     materials = this.FoundationWallSupport (buildingTier, amount, materials)
 
     return materials
@@ -13,7 +13,7 @@ export class RustMaterialCalculator {
 
   static SquareFoundationCalculator (buildingTier, amount, materials) {
     if (materials === undefined) {
-      const materials = [0, 0, 0, 0]
+      materials = [0, 0, 0, 0]
     }
 
     materials[0] += 50 * amount
@@ -25,7 +25,7 @@ export class RustMaterialCalculator {
 
   static SquareFloorCalculator (buildingTier, amount, materials) {
     if (materials === undefined) {
-      const materials = [0, 0, 0, 0]
+      materials = [0, 0, 0, 0]
     }
 
     materials = this.FoundationWallSupport (buildingTier, amount, materials)
@@ -35,7 +35,7 @@ export class RustMaterialCalculator {
 
   static TriangleFoundationCalculator (buildingTier, amount, materials) {
     if (materials === undefined) {
-      const materials = [0, 0, 0, 0]
+      materials = [0, 0, 0, 0]
     }
     
     materials = this.TriangleFoundationSquareFloorSupport (buildingTier, amount, materials)
@@ -45,7 +45,7 @@ export class RustMaterialCalculator {
 
   static TriangleFloorCalculator (buildingTier, amount, materials) {
     if (materials === undefined) {
-      const materials = [0, 0, 0, 0]
+      materials = [0, 0, 0, 0]
     }
 
     materials[0] += 13 * amount
@@ -65,7 +65,7 @@ export class RustMaterialCalculator {
 
   static DoorwayCalculator (buildingTier, amount, materials) {
     if (materials === undefined) {
-      const materials = [0, 0, 0, 0]
+      materials = [0, 0, 0, 0]
     }
     
     this.WindowDoorwaySupport(buildingTier, amount, materials)
@@ -75,7 +75,7 @@ export class RustMaterialCalculator {
 
   static WindowCalculator (buildingTier, amount, materials) {
     if (materials === undefined) {
-      const materials = [0, 0, 0, 0]
+      materials = [0, 0, 0, 0]
     }
     
     this.WindowDoorwaySupport(buildingTier, amount, materials)
