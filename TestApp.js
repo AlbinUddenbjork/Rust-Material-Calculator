@@ -24,6 +24,7 @@ while (done) {
   }
 
   console.log('So far you need ' + materials[0] + ' wood, ' + materials[1] + ' stone, ' + materials[2] + ' metal, ' + materials[3] + ' high quality metal, ' )
+  console.log()
 }
 
 if (materials[1] > 0) {

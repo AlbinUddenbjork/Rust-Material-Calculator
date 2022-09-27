@@ -33,16 +33,6 @@ export class RustMaterialCalculator {
     return materials
   }
 
-  static SquareFloorCalculator (buildingTier, amount, materials) {
-    if (materials === undefined) {
-      const materials = [0, 0, 0, 0]
-    }
-
-    materials = this.FoundationWallSupport (buildingTier, amount, materials)
-
-    return materials
-  }
-
   static TriangleFoundationCalculator (buildingTier, amount, materials) {
     if (materials === undefined) {
       const materials = [0, 0, 0, 0]
