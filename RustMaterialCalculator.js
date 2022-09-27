@@ -93,16 +93,50 @@ export class RustMaterialCalculator {
     return materials
   }
 
-  static StoneCalculator (pickaxeTier, amount) {
+  static StoneCalculator (pickaxeTier, amount, multiplier) {
+    if (multiplier !== undefined && multiplier > 1) {
+      amount = amount / multiplier
+    }
     let nodeAmount
+    
     if (pickaxeTier === 1) {
-      nodeAmount = amount / 375
+      nodeAmount = (amount / 375)
     } else if (pickaxeTier === 2) {
-      nodeAmount = amount / 795
+      nodeAmount = (amount / 795)
     } else if (pickaxeTier === 3) {
-      nodeAmount = amount / 1000
+      nodeAmount = (amount / 1000)
     }
 
+    nodeAmount = Math.ceil(nodeAmount)
+    return nodeAmount
+  }
+
+  static SulfurCalculator (pickaxeTier, amount, multiplier) {
+    if (multiplier !== undefined && multiplier > 1) {
+      amount = amount / multiplier
+    }
+    let nodeAmount
+
+    if (pickaxeTier === 1) {
+      nodeAmount = amount / 100
+    } else if (pickaxeTier === 2) {
+      nodeAmount = amount / 245
+    } else if (pickaxeTier === 3) {
+      nodeAmount = amount / 300
+    }
+
+    nodeAmount = Math.ceil(nodeAmount)
+    return nodeAmount
+  }
+
+  static HQMCalculator (amount, multiplier) {
+    if (multiplier !== undefined && multiplier > 1) {
+      amount / multiplier
+    }
+
+    const nodeAmount = amount / 2
+
+    nodeAmount = Math.ceil(nodeAmount)
     return nodeAmount
   }
 
