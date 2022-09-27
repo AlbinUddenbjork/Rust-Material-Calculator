@@ -103,19 +103,19 @@ function metalTest (materials) {
 function sulfurTest () {
   let sulfurNodes
 
-  sulfurNodes = RustMaterialCalculator.StoneCalculator(1, 15000)
-  console.log("If you mine sulfur nodes with your rock you'll need to mine " + sulfurNodes + " stone nodes.")
-  sulfurNodes = RustMaterialCalculator.StoneCalculator(2, 15000)
-  console.log("If you mine sulfur nodes with a stone pickaxe you'll need to mine " + sulfurNodes + " stone nodes.")
-  sulfurNodes = RustMaterialCalculator.StoneCalculator(3, 15000)
-  console.log("If you mine sulfur nodes with a pickaxe or better you'll need to mine " + sulfurNodes + " stone nodes.")
+  sulfurNodes = RustMaterialCalculator.SulfurCalculator(1, 15000)
+  console.log("If you mine sulfur nodes with your rock you'll need to mine " + sulfurNodes + " sulfur nodes.")
+  sulfurNodes = RustMaterialCalculator.SulfurCalculator(2, 15000)
+  console.log("If you mine sulfur nodes with a stone pickaxe you'll need to mine " + sulfurNodes + " sulfur nodes.")
+  sulfurNodes = RustMaterialCalculator.SulfurCalculator(3, 15000)
+  console.log("If you mine sulfur nodes with a pickaxe or better you'll need to mine " + sulfurNodes + " sulfur nodes.")
 
-  sulfurNodes = RustMaterialCalculator.StoneCalculator(1, 15000, 3)
-  console.log("If you mine sulfur nodes with your rock you'll need to mine " + sulfurNodes + " stone nodes with the multiplier of 3.")
-  sulfurNodes = RustMaterialCalculator.StoneCalculator(2, 15000, 3)
-  console.log("If you mine sulfur nodes with a stone pickaxe you'll need to mine " + sulfurNodes + " stone nodes with the multiplier of 3")
-  sulfurNodes = RustMaterialCalculator.StoneCalculator(3, 15000, 3)
-  console.log("If you mine sulfur nodes with a pickaxe or better you'll need to mine " + sulfurNodes + " stone nodes with the multiplier of 3")
+  sulfurNodes = RustMaterialCalculator.SulfurCalculator(1, 15000, 3)
+  console.log("If you mine sulfur nodes with your rock you'll need to mine " + sulfurNodes + " sulfur nodes with the multiplier of 3.")
+  sulfurNodes = RustMaterialCalculator.SulfurCalculator(2, 15000, 3)
+  console.log("If you mine sulfur nodes with a stone pickaxe you'll need to mine " + sulfurNodes + " sulfur nodes with the multiplier of 3")
+  sulfurNodes = RustMaterialCalculator.SulfurCalculator(3, 15000, 3)
+  console.log("If you mine sulfur nodes with a pickaxe or better you'll need to mine " + sulfurNodes + " sulfur nodes with the multiplier of 3")
   console.log()
 }
 
